@@ -31,7 +31,6 @@ class Album extends React.Component {
       return newTracks;
     });
     const responseFavoriteSong = await getFavoriteSongs();
-    console.log(responseFavoriteSong);
     this.setState({
       albumName: collectionName,
       artistName,

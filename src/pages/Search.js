@@ -82,10 +82,9 @@ render() {
                             collectionName,
                             artistName,
                             artworkUrl100,
-                            artistId,
                             collectionId } = album;
                           return (
-                            <div key={ artistId }>
+                            <div key={ collectionId }>
                               <Link
                                 to={ `/album/${collectionId}` }
                                 data-testid={ `link-to-album-${collectionId}` }

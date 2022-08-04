@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
-import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class Album extends React.Component {
@@ -16,10 +16,12 @@ class Album extends React.Component {
       tracks: [],
       loading: false,
       targetCheck: false,
+      favoriteSongs: [],
     };
   }
 
   async componentDidMount() {
+    this.setState({ loading: true });
     const { match: { params: { id } } } = this.props;
     const response = await getMusics(id);
     const { artistName, artworkUrl100, collectionName } = response[0];
@@ -28,12 +30,32 @@ class Album extends React.Component {
       const newTracks = { ...track, favorite: false };
       return newTracks;
     });
-    console.log(favoriteTrack);
+    const responseFavoriteSong = await getFavoriteSongs();
+    console.log(responseFavoriteSong);
     this.setState({
       albumName: collectionName,
       artistName,
       artistImage: artworkUrl100,
-      tracks: favoriteTrack });
+      tracks: favoriteTrack,
+      favoriteSongs: responseFavoriteSong }, () => {
+      const { favoriteSongs } = this.state;
+      if (favoriteSongs.length > 0) {
+        const tracksIds = favoriteSongs.map((song) => song.trackId);
+        const indexArr = [];
+        tracks.forEach((song, index) => {
+          if (tracksIds.includes(song.trackId)) {
+            indexArr.push(index);
+          }
+        });
+        indexArr.forEach((i) => {
+          const newState = { ...this.state };
+          newState.tracks[i].favorite = true;
+        });
+        console.log(tracksIds);
+        console.log(indexArr);
+      }
+      this.setState({ loading: false });
+    });
   }
 
   favorite = async ({ target: { checked } }, track, index) => {
@@ -72,7 +94,7 @@ class Album extends React.Component {
                   tracks.map((track, index) => {
                     const { previewUrl, trackName, trackId } = track;
                     return (<MusicCard
-                      key={ trackName }
+                      key={ trackId }
                       trackName={ trackName }
                       previewUrl={ previewUrl }
                       trackId={ trackId }

@@ -43,7 +43,7 @@ class Profile extends React.Component {
                   <Link
                     to="/profile/edit"
                   >
-                    Editar
+                    Editar perfil
                   </Link>
                 </div>
               </div>

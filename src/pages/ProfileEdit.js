@@ -131,7 +131,7 @@ class ProfileEdit extends React.Component {
                       data-testid="edit-button-save"
                       onClick={ this.saveEdit }
                     >
-                      Salvar
+                      Editar perfil
                     </button>
                   </form>
                 </>

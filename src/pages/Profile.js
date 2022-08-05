@@ -39,11 +39,13 @@ class Profile extends React.Component {
                 <p>{email}</p>
                 <h3>Descrição:</h3>
                 <p>{description}</p>
-                <Link
-                  to="/profile/edit"
-                >
-                  Editar perfil
-                </Link>
+                <div>
+                  <Link
+                    to="/profile/edit"
+                  >
+                    Editar
+                  </Link>
+                </div>
               </div>
             )
         }

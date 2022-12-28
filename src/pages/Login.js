@@ -12,14 +12,27 @@ class Login extends React.Component {
       validButtonLogin: true,
       loading: true,
       theme: 'theme-light',
+      tooltip: 'tooltip',
     };
+  }
+
+  validButtonTrue = () => {
+    this.setState({ validButtonLogin: true, tooltip: 'tooltip' });
+  }
+
+  validButtonfalse = () => {
+    this.setState({ validButtonLogin: false, tooltip: '' });
   }
 
   handler = ({ target: { value } }) => {
     this.setState({ nameLogin: value }, () => {
       const limitMinCaracteres = 3;
       const isDisable = value.length < limitMinCaracteres;
-      this.setState({ validButtonLogin: isDisable });
+      if (isDisable) {
+        this.setState({ validButtonLogin: true, tooltip: 'tooltip' });
+        return;
+      }
+      this.setState({ validButtonLogin: false, tooltip: '' });
     });
   }
 
@@ -33,7 +46,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { nameLogin, validButtonLogin, loading, theme } = this.state;
+    const { nameLogin, validButtonLogin, loading, theme, tooltip } = this.state;
     return (
       <main className="body-login">
         <div className={ `login-container ${theme}` } data-testid="page-login">
@@ -44,6 +57,7 @@ class Login extends React.Component {
                 <form>
                   <input
                     type="text"
+                    placeholder="Qual é o seu nome?"
                     name="login-name-input"
                     id="name-input"
                     value={ nameLogin }
@@ -51,12 +65,14 @@ class Login extends React.Component {
                     data-testid="login-name-input"
                   />
                   <button
+                    className={ tooltip }
+                    data-tooltip="Digite seu nome acima!"
                     data-testid="login-submit-button"
                     type="submit"
                     disabled={ validButtonLogin }
                     onClick={ this.loginSucess }
                   >
-                    Entrar
+                    ENTRAR
                   </button>
                 </form>
               ) : <Loading />

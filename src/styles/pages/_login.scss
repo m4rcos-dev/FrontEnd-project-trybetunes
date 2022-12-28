@@ -7,10 +7,29 @@
   justify-content: center;
   justify-items: center;
   background-image: url('../../assets/imageBackgroundLogin.svg');
-  background: linear-gradient(123.66deg, #003BE5 12.08%, #00D5E2 86.52%);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .login-container {
-  @include box(750px, 450px, _none, 20px);
+  @include box(46.875rem, 28.125rem, _none, 1.25rem);
   @include shadow-box(0px 0px 26px, #44495533);
+  margin: 0rem 1rem 0rem 1rem;
+
+  input {
+    @include box(80%, 4vh, 1px solid $primary, 100px);
+    &:current {
+      border: 0rem,
+    }
+  }
+
+  button {
+    @include box(80%, 4vh, 0rem, 100px);
+    background-color: $primary;
+    color: $light;
+    &:disabled {
+      background-color: $disable;
+      color: $dark;
+    }
+  }
 }

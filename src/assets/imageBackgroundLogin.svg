@@ -1,4 +1,13 @@
 <svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g>
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+<stop offset="12.08%" style="stop-color:#003BE5;stop-opacity:1" />
+<stop offset="86.52%" style="stop-color: #00D5E2;stop-opacity:1" />
+</linearGradient>
+</defs>
+<rect width="1280" height="720" fill="url(#grad1)" />
+</g>
 <g filter="url(#filter0_f_9_294)">
 <line x1="76" y1="90" x2="76" y2="192" stroke="#00D5E2" stroke-width="14"/>
 <line x1="262" y1="90" x2="262" y2="192" stroke="#00D5E2" stroke-width="14"/>

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
+import logo from '../assets/logo.svg';
 
 class Login extends React.Component {
   constructor() {
@@ -36,22 +37,19 @@ class Login extends React.Component {
     return (
       <main className="body-login">
         <div className={ `login-container ${theme}` } data-testid="page-login">
-          <h1>Login</h1>
+          <img alt="logo" src={ logo } />
           {
             loading
               ? (
                 <form>
-                  <label htmlFor="name-input">
-                    Nome:
-                    <input
-                      type="text"
-                      name="login-name-input"
-                      id="name-input"
-                      value={ nameLogin }
-                      onChange={ this.handler }
-                      data-testid="login-name-input"
-                    />
-                  </label>
+                  <input
+                    type="text"
+                    name="login-name-input"
+                    id="name-input"
+                    value={ nameLogin }
+                    onChange={ this.handler }
+                    data-testid="login-name-input"
+                  />
                   <button
                     data-testid="login-submit-button"
                     type="submit"

@@ -10,6 +10,7 @@ class Login extends React.Component {
       nameLogin: '',
       validButtonLogin: true,
       loading: true,
+      theme: 'theme-light',
     };
   }
 
@@ -31,37 +32,39 @@ class Login extends React.Component {
   }
 
   render() {
-    const { nameLogin, validButtonLogin, loading } = this.state;
+    const { nameLogin, validButtonLogin, loading, theme } = this.state;
     return (
-      <div data-testid="page-login">
-        <h1>Login</h1>
-        {
-          loading
-            ? (
-              <form>
-                <label htmlFor="name-input">
-                  Nome:
-                  <input
-                    type="text"
-                    name="login-name-input"
-                    id="name-input"
-                    value={ nameLogin }
-                    onChange={ this.handler }
-                    data-testid="login-name-input"
-                  />
-                </label>
-                <button
-                  data-testid="login-submit-button"
-                  type="submit"
-                  disabled={ validButtonLogin }
-                  onClick={ this.loginSucess }
-                >
-                  Entrar
-                </button>
-              </form>
-            ) : <Loading />
-        }
-      </div>
+      <main className="body-login">
+        <div className={ `login-container ${theme}` } data-testid="page-login">
+          <h1>Login</h1>
+          {
+            loading
+              ? (
+                <form>
+                  <label htmlFor="name-input">
+                    Nome:
+                    <input
+                      type="text"
+                      name="login-name-input"
+                      id="name-input"
+                      value={ nameLogin }
+                      onChange={ this.handler }
+                      data-testid="login-name-input"
+                    />
+                  </label>
+                  <button
+                    data-testid="login-submit-button"
+                    type="submit"
+                    disabled={ validButtonLogin }
+                    onClick={ this.loginSucess }
+                  >
+                    Entrar
+                  </button>
+                </form>
+              ) : <Loading />
+          }
+        </div>
+      </main>
     );
   }
 }

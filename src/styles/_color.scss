@@ -1,0 +1,15 @@
+$primary: #013BE5;
+$secondary: #04D9D9;
+
+$light: #FFFFFF;
+$dark: #444955;
+
+.theme-dark {
+  background-color: $dark;
+  color: $light;
+}
+
+.theme-light {
+  background-color: $light;
+  color: $dark;
+}

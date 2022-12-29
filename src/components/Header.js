@@ -22,7 +22,7 @@ class Header extends React.Component {
   render() {
     const { loading, user } = this.state;
     return (
-      <header data-testid="header-component">
+      <header className="drawer-container" data-testid="header-component">
         {
           loading ? <Loading />
             : <span data-testid="header-user-name">{`Olá: ${user}`}</span>

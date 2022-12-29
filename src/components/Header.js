@@ -9,6 +9,7 @@ class Header extends React.Component {
     this.state = {
       loading: false,
       user: '',
+      theme: 'theme-dark',
     };
   }
 
@@ -20,9 +21,9 @@ class Header extends React.Component {
   }
 
   render() {
-    const { loading, user } = this.state;
+    const { loading, user, theme } = this.state;
     return (
-      <header className="drawer-container" data-testid="header-component">
+      <header className={ `drawer-container ${theme}` } data-testid="header-component">
         {
           loading ? <Loading />
             : <span data-testid="header-user-name">{`Olá: ${user}`}</span>

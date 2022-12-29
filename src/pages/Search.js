@@ -14,6 +14,7 @@ class Search extends React.Component {
       loading: false,
       validSearchItens: false,
       albumSearch: [],
+      theme: 'theme-dark',
     };
   }
 
@@ -47,14 +48,15 @@ render() {
     validButtonSearch,
     loading,
     albumSearch,
-    currentSearch } = this.state;
+    currentSearch,
+    theme } = this.state;
   return (
     <div className="search-container">
       <Header />
       {
         loading ? <Loading />
           : (
-            <main data-testid="page-search">
+            <main className={ theme } data-testid="page-search">
               <form>
                 <input
                   type="text"

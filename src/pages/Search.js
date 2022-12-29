@@ -49,12 +49,12 @@ render() {
     albumSearch,
     currentSearch } = this.state;
   return (
-    <>
+    <div className="search-container">
       <Header />
       {
         loading ? <Loading />
           : (
-            <div data-testid="page-search">
+            <main data-testid="page-search">
               <form>
                 <input
                   type="text"
@@ -100,10 +100,10 @@ render() {
                     ) : this.validSearchItens()
                 }
               </div>
-            </div>
+            </main>
           )
       }
-    </>
+    </div>
   );
 }
 }

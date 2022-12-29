@@ -1,0 +1,8 @@
+.search-container {
+  display: flex;
+
+  main {
+    @include box(85%, _none, 1px solid black, _none);
+    margin: 0% 0% 0% 15%;
+  }
+}

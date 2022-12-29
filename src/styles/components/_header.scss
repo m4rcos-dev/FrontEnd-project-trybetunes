@@ -1,3 +1,4 @@
 .drawer-container {
-  @include box(250px, 100vh, 1px solid black, _none)
+  @include box(15%, 100vh, 1px solid black, _none);
+  position: fixed;
 }

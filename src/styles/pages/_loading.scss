@@ -1,0 +1,42 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: $primary;
+    font-size: 30px;
+  }
+
+  div {
+    @include box (20px, 20px, _none, 100%);
+    animation: bounce 1s 0.7s linear infinite;
+    margin: 10px;
+    background: linear-gradient(123.66deg, #003BE5 12.08%, #00D5E2 86.52%);
+  }
+
+  .circle-1 {
+    animation-delay: 0.2s;
+  }
+
+  .circle-2 {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes bounce {
+    0%,
+    50%,
+    100% {
+      transform: scale(1);
+      filter: blur(0px);
+    }
+    25% {
+      transform: scale(0.6);
+    }
+    75% {
+      transform: scale(1.4);
+    }
+  }
+}
+
+

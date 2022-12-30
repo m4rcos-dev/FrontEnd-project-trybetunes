@@ -12,7 +12,7 @@
     @include box (20px, 20px, _none, 100%);
     animation: bounce 1s 0.7s linear infinite;
     margin: 10px;
-    background: linear-gradient(123.66deg, #003BE5 12.08%, #00D5E2 86.52%);
+    @include gradient(primary-start, 123.66deg, );
   }
 
   .circle-1 {

@@ -8,3 +8,13 @@
 @mixin shadow-box ($size, $color) {
   box-shadow: $size $color;
 }
+
+@mixin gradient ($type, $graus) {
+  @if $type == primary-start {
+    background: linear-gradient($graus, $primary, $secondary);
+  }
+
+  @else if $type == secondary-start {
+    background: linear-gradient($graus, $secondary, $primary);
+  }
+}

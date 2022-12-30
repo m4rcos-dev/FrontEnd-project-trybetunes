@@ -2,7 +2,8 @@
 @import '_base.scss';
 @import '_components.scss';
 @import '_layout.scss';
+@import './components/_toogleDarkMode.scss';
 @import './pages/_login.scss';
-@import './pages/loading.scss';
-@import './components/header.scss';
-@import './pages/search';
+@import './pages/_loading.scss';
+@import './components/_header.scss';
+@import './pages/_search.scss';

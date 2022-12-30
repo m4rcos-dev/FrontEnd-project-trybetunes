@@ -86,3 +86,10 @@
 .tooltip:hover:after {
   display:block;
 }
+
+.toogle-container {
+  width: 85%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.4rem 0.4rem 0rem 0rem;
+}

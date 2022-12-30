@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
 import logo from '../assets/logo.svg';
+import ToggleDarkMode from '../components/ToggleDarkMode';
 
 class Login extends React.Component {
   constructor() {
@@ -74,6 +75,9 @@ class Login extends React.Component {
                   >
                     ENTRAR
                   </button>
+                  <div className="toogle-container">
+                    <ToggleDarkMode />
+                  </div>
                 </form>
               ) : <Loading />
           }

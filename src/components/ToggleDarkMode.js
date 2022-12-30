@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 import moon from '../assets/musicDark.svg';
 import sun from '../assets/musicLight.svg';

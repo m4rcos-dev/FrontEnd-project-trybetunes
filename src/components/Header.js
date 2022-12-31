@@ -15,18 +15,19 @@ class Header extends React.Component {
     this.state = {
       loading: false,
       user: '',
+      imageUser: '',
     };
   }
 
   componentDidMount() {
     this.setState({ loading: true }, async () => {
       const userGet = await getUser();
-      this.setState({ user: userGet.name, loading: false });
+      this.setState({ user: userGet.name, imageUser: userGet.image, loading: false });
     });
   }
 
   render() {
-    const { loading, user } = this.state;
+    const { loading, user, imageUser } = this.state;
     const { theme } = this.context;
     return (
       <header className={ `drawer-container ${theme}` } data-testid="header-component">
@@ -58,7 +59,12 @@ class Header extends React.Component {
         </nav>
         {
           loading ? <Loading />
-            : <span data-testid="header-user-name">{`Olá: ${user}`}</span>
+            : (
+              <div>
+                <img alt="image profile" src={ imageUser } />
+                <span data-testid="header-user-name">{`Olá: ${user}`}</span>
+              </div>
+            )
         }
       </header>
     );

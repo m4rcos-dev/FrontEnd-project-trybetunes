@@ -30,7 +30,7 @@ export const createUser = (user) => new Promise((resolve) => {
   const emptyUser = {
     name: '',
     email: '',
-    image: '',
+    image: 'https://user-images.githubusercontent.com/104791582/210151952-ac1a4438-0918-467d-a047-956b9632d7aa.svg',
     description: '',
   };
   saveUser({ ...emptyUser, ...user });

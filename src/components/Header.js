@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../pages/Loading';
 import { getUser } from '../services/userAPI';
+import Logo from '../assets/logo.svg';
 
 class Header extends React.Component {
   constructor() {
@@ -9,7 +10,7 @@ class Header extends React.Component {
     this.state = {
       loading: false,
       user: '',
-      theme: 'theme-dark',
+      theme: 'theme-ligth',
     };
   }
 
@@ -24,15 +25,16 @@ class Header extends React.Component {
     const { loading, user, theme } = this.state;
     return (
       <header className={ `drawer-container ${theme}` } data-testid="header-component">
-        {
-          loading ? <Loading />
-            : <span data-testid="header-user-name">{`Olá: ${user}`}</span>
-        }
+        <img alt="logo" src={ Logo } />
         <nav>
           <Link to="/search" data-testid="link-to-search">Buscar </Link>
           <Link to="/favorites" data-testid="link-to-favorites">Favoritas </Link>
           <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
         </nav>
+        {
+          loading ? <Loading />
+            : <span data-testid="header-user-name">{`Olá: ${user}`}</span>
+        }
       </header>
     );
   }

@@ -4,6 +4,9 @@ $secondary: #04D9D9;
 $light: #FFFFFF;
 $dark: #444955;
 
+$secondary-dark: black;
+$secondary-ligth: #EFF3F9;
+
 $disable: #0194E4;
 
 .theme-dark {
@@ -14,4 +17,12 @@ $disable: #0194E4;
 .theme-ligth {
   background-color: $light;
   color: $dark;
+}
+
+.secondary-theme-ligth {
+  background-color: $secondary-ligth;
+}
+
+.secondary-theme-dark {
+  background-color: $secondary-dark;
 }

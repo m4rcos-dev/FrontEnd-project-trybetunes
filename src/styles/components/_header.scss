@@ -1,4 +1,31 @@
 .drawer-container {
   @include box(15%, 100vh, 1px solid black, _none);
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    width: 197.19px;
+    height: 104.89px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: inherit;
+    }
+
+    a:hover {
+      color: $secondary;
+    }
+
+  }
 }

@@ -7,11 +7,12 @@ import Favorites from './pages/Favorites';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
+import ThemeProvider from './context/ThemeProvider';
 
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <ThemeProvider>
         <Switch>
           <Route exact path="/" component={ Login } />
           <Route exact path="/search" component={ Search } />
@@ -21,7 +22,7 @@ class App extends React.Component {
           <Route exact path="/profile/edit" component={ ProfileEdit } />
           <Route exact path="*" component={ NotFound } />
         </Switch>
-      </div>
+      </ThemeProvider>
     );
   }
 }

@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
+import ThemeContext from '../context/ThemeContext';
 
 class ToggleDarkMode extends Component {
   render() {
+    const { handleTheme } = this.context;
     return (
       <div className="toogle-container">
-        <input type="checkbox" id="darkmode-toggle" />
+        <input type="checkbox" id="darkmode-toggle" onChange={ handleTheme } />
         <label htmlFor="darkmode-toggle">
 
           <svg className="moon" fill="#FFF" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -50,5 +52,7 @@ class ToggleDarkMode extends Component {
     );
   }
 }
+
+ToggleDarkMode.contextType = ThemeContext;
 
 export default ToggleDarkMode;

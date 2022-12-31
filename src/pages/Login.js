@@ -4,6 +4,7 @@ import { createUser } from '../services/userAPI';
 import Loading from './Loading';
 import logo from '../assets/logo.svg';
 import ToggleDarkMode from '../components/ToggleDarkMode';
+import ThemeContext from '../context/ThemeContext';
 
 class Login extends React.Component {
   constructor() {
@@ -16,6 +17,11 @@ class Login extends React.Component {
       tooltip: 'tooltip',
     };
   }
+
+  // componentDidMount() {
+  //   const { currentTheme } = this.context;
+  //   console.log(currentTheme);
+  // }
 
   validButtonTrue = () => {
     this.setState({ validButtonLogin: true, tooltip: 'tooltip' });
@@ -86,6 +92,8 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.contextType = ThemeContext;
 
 Login.propTypes = {
   history: PropTypes.shape({

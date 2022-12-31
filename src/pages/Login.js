@@ -13,15 +13,9 @@ class Login extends React.Component {
       nameLogin: '',
       validButtonLogin: true,
       loading: true,
-      theme: 'theme-light',
       tooltip: 'tooltip',
     };
   }
-
-  // componentDidMount() {
-  //   const { currentTheme } = this.context;
-  //   console.log(currentTheme);
-  // }
 
   validButtonTrue = () => {
     this.setState({ validButtonLogin: true, tooltip: 'tooltip' });
@@ -53,7 +47,8 @@ class Login extends React.Component {
   }
 
   render() {
-    const { nameLogin, validButtonLogin, loading, theme, tooltip } = this.state;
+    const { nameLogin, validButtonLogin, loading, tooltip } = this.state;
+    const { theme } = this.context;
     return (
       <main className="body-login">
         <div className={ `login-container ${theme}` } data-testid="page-login">

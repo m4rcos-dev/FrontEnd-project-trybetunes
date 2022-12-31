@@ -1,41 +1,49 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { saveTheme, validThemeStorage } from '../services/themeAPI';
 import ThemeContext from './ThemeContext';
+
+const THEME_LIGTH = 'theme-ligth';
+const THEME_DARK = 'theme-dark';
 
 class ThemeProvider extends Component {
   constructor() {
     super();
     this.state = {
-      theme: 'theme-ligth',
+      theme: '',
+      checked: false,
     };
   }
 
   componentDidMount() {
-    const { theme } = this.state;
-    const currentTheme = theme === 'theme-ligth' ? 'theme-dark' : 'theme-ligth';
-    this.setState({ theme: currentTheme });
+    const currentThemeStorage = validThemeStorage();
+    this.setState({ theme: currentThemeStorage }, () => {
+      const validCurrentChecked = currentThemeStorage === THEME_DARK;
+      this.setState({ checked: validCurrentChecked });
+    });
   }
 
   handleTheme = () => {
     const { theme } = this.state;
-    const currentTheme = theme === 'theme-ligth' ? 'theme-dark' : 'theme-ligth';
-    this.setState({ theme: currentTheme });
-    console.log(theme);
-    // const { theme } = this.state;
-    // this.setState({ theme: !theme }, () => {
-    //   console.log(theme);
-    //   const { currentTheme } = this.state;
-    //   const validCurrentTheme = theme ? 'theme-dark' : 'theme-light';
-    //   this.setState({ currentTheme: validCurrentTheme });
-    //   console.log(currentTheme);
-    // });
+    const currentTheme = this.validCurrenTheme(theme);
+    saveTheme(currentTheme);
+    this.setState({ theme: currentTheme }, () => {
+      const { checked } = this.state;
+      this.setState({ checked: !checked });
+    });
+  }
+
+  validCurrenTheme = (validate) => {
+    const currentTheme = validate === THEME_LIGTH ? THEME_DARK : THEME_LIGTH;
+    return currentTheme;
   }
 
   render() {
     const { children } = this.props;
-    const { theme } = this.state;
+    const { theme, checked } = this.state;
     const { handleTheme } = this;
     return (
-      <ThemeContext.Provider value={ { theme, handleTheme } }>
+      <ThemeContext.Provider value={ { theme, checked, handleTheme } }>
         <div>
           {children}
         </div>
@@ -43,5 +51,9 @@ class ThemeProvider extends Component {
     );
   }
 }
+
+ThemeProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default ThemeProvider;

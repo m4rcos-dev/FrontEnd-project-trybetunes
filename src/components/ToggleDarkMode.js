@@ -4,10 +4,15 @@ import ThemeContext from '../context/ThemeContext';
 
 class ToggleDarkMode extends Component {
   render() {
-    const { handleTheme } = this.context;
+    const { handleTheme, checked } = this.context;
     return (
       <div className="toogle-container">
-        <input type="checkbox" id="darkmode-toggle" onChange={ handleTheme } />
+        <input
+          type="checkbox"
+          id="darkmode-toggle"
+          onChange={ handleTheme }
+          checked={ checked }
+        />
         <label htmlFor="darkmode-toggle">
 
           <svg className="moon" fill="#FFF" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">

@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { MdFavoriteBorder } from 'react-icons/md';
+import { CgProfile } from 'react-icons/cg';
 import Loading from '../pages/Loading';
 import { getUser } from '../services/userAPI';
 import Logo from '../assets/logo.svg';
+import ToggleDarkMode from './ToggleDarkMode';
+import ThemeContext from '../context/ThemeContext';
 
 class Header extends React.Component {
   constructor() {
@@ -10,7 +15,6 @@ class Header extends React.Component {
     this.state = {
       loading: false,
       user: '',
-      theme: 'theme-ligth',
     };
   }
 
@@ -22,14 +26,35 @@ class Header extends React.Component {
   }
 
   render() {
-    const { loading, user, theme } = this.state;
+    const { loading, user } = this.state;
+    const { theme } = this.context;
     return (
       <header className={ `drawer-container ${theme}` } data-testid="header-component">
-        <img alt="logo" src={ Logo } />
+        <div className="logo-container">
+          <img alt="logo" src={ Logo } />
+          <div className="toogle-container">
+            <ToggleDarkMode />
+          </div>
+        </div>
         <nav>
-          <Link to="/search" data-testid="link-to-search">Buscar </Link>
-          <Link to="/favorites" data-testid="link-to-favorites">Favoritas </Link>
-          <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+          <Link to="/search" data-testid="link-to-search">
+            <div>
+              <AiOutlineSearch />
+            </div>
+            Buscar
+          </Link>
+          <Link to="/favorites" data-testid="link-to-favorites">
+            <div>
+              <MdFavoriteBorder />
+            </div>
+            Favoritas
+          </Link>
+          <Link to="/profile" data-testid="link-to-profile">
+            <div>
+              <CgProfile />
+            </div>
+            Perfil
+          </Link>
         </nav>
         {
           loading ? <Loading />
@@ -39,5 +64,7 @@ class Header extends React.Component {
     );
   }
 }
+
+Header.contextType = ThemeContext;
 
 export default Header;

@@ -60,9 +60,9 @@ class Header extends React.Component {
         {
           loading ? <Loading />
             : (
-              <div>
+              <div className="profile-container">
                 <img alt="image profile" src={ imageUser } />
-                <span data-testid="header-user-name">{`Olá: ${user}`}</span>
+                <span data-testid="header-user-name">{user}</span>
               </div>
             )
         }

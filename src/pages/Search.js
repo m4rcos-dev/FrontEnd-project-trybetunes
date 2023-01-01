@@ -57,22 +57,24 @@ render() {
         loading ? <Loading />
           : (
             <main className={ theme } data-testid="page-search">
-              <form>
-                <input
-                  type="text"
-                  data-testid="search-artist-input"
-                  value={ searchInput }
-                  onChange={ this.handler }
-                />
-                <button
-                  type="button"
-                  data-testid="search-artist-button"
-                  disabled={ validButtonSearch }
-                  onClick={ this.clickSearch }
-                >
-                  Pesquisar
-                </button>
-              </form>
+              <header>
+                <form>
+                  <input
+                    type="text"
+                    data-testid="search-artist-input"
+                    value={ searchInput }
+                    onChange={ this.handler }
+                  />
+                  <button
+                    type="button"
+                    data-testid="search-artist-button"
+                    disabled={ validButtonSearch }
+                    onClick={ this.clickSearch }
+                  >
+                    Pesquisar
+                  </button>
+                </form>
+              </header>
               <div>
                 {
                   albumSearch.length > 0

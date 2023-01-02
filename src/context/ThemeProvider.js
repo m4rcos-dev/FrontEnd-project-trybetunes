@@ -61,10 +61,10 @@ class ThemeProvider extends Component {
 
   render() {
     const { children } = this.props;
-    const { theme, checked } = this.state;
+    const { theme, checked, secondaryTheme } = this.state;
     const { handleTheme } = this;
     return (
-      <ThemeContext.Provider value={ { theme, checked, handleTheme } }>
+      <ThemeContext.Provider value={ { theme, checked, secondaryTheme, handleTheme } }>
         <div>
           {children}
         </div>

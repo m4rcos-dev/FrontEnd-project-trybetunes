@@ -1,6 +1,8 @@
 import React from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import ThemeContext from '../context/ThemeContext';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 
@@ -14,7 +16,6 @@ class Search extends React.Component {
       loading: false,
       validSearchItens: false,
       albumSearch: [],
-      theme: 'theme-dark',
     };
   }
 
@@ -48,30 +49,34 @@ render() {
     validButtonSearch,
     loading,
     albumSearch,
-    currentSearch,
-    theme } = this.state;
+    currentSearch } = this.state;
+  const { secondaryTheme } = this.context;
   return (
     <div className="search-container">
       <Header />
       {
         loading ? <Loading />
           : (
-            <main className={ theme } data-testid="page-search">
+            <main className={ secondaryTheme } data-testid="page-search">
               <header>
                 <form>
-                  <input
-                    type="text"
-                    data-testid="search-artist-input"
-                    value={ searchInput }
-                    onChange={ this.handler }
-                  />
+                  <div className="input-container">
+                    <input
+                      type="text"
+                      data-testid="search-artist-div"
+                      placeholder="DIGITE A SUA PESQUISA"
+                      value={ searchInput }
+                      onChange={ this.handler }
+                    />
+                    <AiOutlineSearch size="25px" color="#FFFFFF" />
+                  </div>
                   <button
                     type="button"
                     data-testid="search-artist-button"
                     disabled={ validButtonSearch }
                     onClick={ this.clickSearch }
                   >
-                    Pesquisar
+                    PESQUISAR
                   </button>
                 </form>
               </header>
@@ -111,5 +116,7 @@ render() {
   );
 }
 }
+
+Search.contextType = ThemeContext;
 
 export default Search;

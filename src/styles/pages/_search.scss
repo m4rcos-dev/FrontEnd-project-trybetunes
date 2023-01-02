@@ -2,7 +2,70 @@
   display: flex;
 
   main {
-    @include box(85%, _none, 1px solid black, _none);
+    @include box(85%, 100vh, _none, _none);
     margin: 0% 0% 0% 15%;
+
+    header {
+      width: 100%;
+      height: 30vh;
+      background-image: url('../../assets/backgroundHeaderPages.svg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    form {
+      width: 100%;
+      height: 30vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .input-container {
+        position: relative;
+
+        input {
+          background: #ffffff80;
+          @include box(25rem, 2.5rem, _none, 1.438rem);
+          color: $light;
+          padding: 0rem 0rem 0rem 1.188rem;
+
+          &::placeholder {
+            color: $light;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 14px;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+          }
+        }
+
+        svg {
+          position: absolute;
+          right: 10px;
+          bottom: 8px;
+        }
+      }
+
+      button {
+        background: $secondary;
+        @include box(114px, 40px, _none, 23px);
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: $light;
+        margin: 0rem 0rem 0rem 1rem;
+
+        &:disabled {
+          background-color: $disable;
+          color: $secondary;
+          cursor: not-allowed;
+        }
+      }
+
+    }
   }
 }

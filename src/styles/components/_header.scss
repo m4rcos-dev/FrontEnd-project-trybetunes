@@ -1,5 +1,5 @@
 .drawer-container {
-  @include box(15%, 100vh, 1px solid black, _none);
+  @include box(15%, 100vh, _none, _none);
   position: fixed;
   display: flex;
   flex-direction: column;

@@ -12,17 +12,21 @@ $disable: #0194E4;
 .theme-dark {
   background-color: $dark;
   color: $light;
+  transition: .7s ease-in-out background, .7s ease-in-out color;
 }
 
 .theme-ligth {
   background-color: $light;
   color: $dark;
+  transition: .7s ease-in-out background, .7s ease-in-out color;
 }
 
 .secondary-theme-ligth {
   background-color: $secondary-ligth;
+  transition: .7s ease-in-out background, .7s ease-in-out color;
 }
 
 .secondary-theme-dark {
   background-color: $secondary-dark;
+  transition: .7s ease-in-out background, .7s ease-in-out color;
 }

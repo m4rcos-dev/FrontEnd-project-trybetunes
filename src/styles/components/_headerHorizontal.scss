@@ -8,7 +8,8 @@
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
+  z-index: 2;
 
   button {
     @media(max-width: 500px) {
@@ -27,7 +28,7 @@
       display: flex;
       flex-direction: column;
       border-radius: 10px;
-      z-index: 1;
+      z-index: 2;
 
       svg {
         margin: 0rem 0.5rem 0rem 1rem;

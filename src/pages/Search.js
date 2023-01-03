@@ -90,7 +90,7 @@ render() {
                 {
                   albumSearch.length > 0
                     ? (
-                      <div>
+                      <div className="result-search-container">
                         <h1>{`Resultado de álbuns de: ${currentSearch}`}</h1>
                         {albumSearch.map((album) => {
                           const {

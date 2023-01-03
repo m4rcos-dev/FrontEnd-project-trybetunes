@@ -2,6 +2,7 @@ import React from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import HeaderHorizontal from '../components/HeaderHorizontal';
 import ThemeContext from '../context/ThemeContext';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
@@ -53,6 +54,7 @@ render() {
   const { secondaryTheme } = this.context;
   return (
     <div className="search-container">
+      <HeaderHorizontal />
       <Header />
       {
         loading ? <Loading />
@@ -63,7 +65,7 @@ render() {
                   <input
                     type="text"
                     data-testid="search-artist-div"
-                    placeholder="DIGITE A SUA PESQUISA"
+                    placeholder="Digite sua pesquisa"
                     value={ searchInput }
                     onChange={ this.handler }
                   />
@@ -75,7 +77,7 @@ render() {
                     onClick={ this.clickSearch }
                   >
                     <AiOutlineSearch size="25px" color="#FFFFFF" />
-                    <span> PESQUISAR </span>
+                    <span> Pesquisar </span>
                   </button>
                 </div>
               </form>

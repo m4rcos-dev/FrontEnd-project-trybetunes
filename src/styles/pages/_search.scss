@@ -16,6 +16,15 @@
     @include box(85%, 100vh, _none, _none);
     margin: 0% 0% 0% 15%;
 
+    .toggle-dark-mode-container {
+      @media(min-width: 1444px) {
+        display: none;
+      }
+
+      position: absolute;
+      right: 0;
+    }
+
     form {
       background-image: url('../../assets/backgroundHeaderPages.svg');
       background-repeat: no-repeat;

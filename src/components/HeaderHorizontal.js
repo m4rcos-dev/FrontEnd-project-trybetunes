@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HiOutlineMenu } from 'react-icons/hi';
 import Logo from '../assets/logo.svg';
+import ThemeContext from '../context/ThemeContext';
 import Loading from '../pages/Loading';
 import { getUser } from '../services/userAPI';
 
@@ -23,8 +24,9 @@ class HeaderHorizontal extends Component {
 
   render() {
     const { loading, imageUser, user } = this.state;
+    const { theme } = this.context;
     return (
-      <div className="header-horizontal-container">
+      <div className={ `header-horizontal-container ${theme}` }>
         <HiOutlineMenu />
         <img alt="logo" src={ Logo } />
         {
@@ -40,5 +42,7 @@ class HeaderHorizontal extends Component {
     );
   }
 }
+
+HeaderHorizontal.contextType = ThemeContext;
 
 export default HeaderHorizontal;

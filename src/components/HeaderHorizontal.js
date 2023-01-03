@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { CgProfile } from 'react-icons/cg';
 import { HiOutlineMenu } from 'react-icons/hi';
+import { MdFavoriteBorder } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 import Logo from '../assets/logo.svg';
 import ThemeContext from '../context/ThemeContext';
 import Loading from '../pages/Loading';
@@ -24,10 +28,26 @@ class HeaderHorizontal extends Component {
 
   render() {
     const { loading, imageUser, user } = this.state;
-    const { theme } = this.context;
+    const { theme, secondaryTheme } = this.context;
     return (
       <div className={ `header-horizontal-container ${theme}` }>
-        <HiOutlineMenu />
+        <div className="menu-container">
+          <HiOutlineMenu />
+          <nav className={ secondaryTheme }>
+            <Link to="/search" data-testid="link-to-search">
+              <AiOutlineSearch />
+              Buscar
+            </Link>
+            <Link to="/favorites" data-testid="link-to-favorites">
+              <MdFavoriteBorder />
+              Favoritas
+            </Link>
+            <Link to="/profile" data-testid="link-to-profile">
+              <CgProfile />
+              Perfil
+            </Link>
+          </nav>
+        </div>
         <img alt="logo" src={ Logo } />
         {
           loading ? <Loading />

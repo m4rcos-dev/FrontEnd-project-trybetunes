@@ -26,6 +26,10 @@
     }
 
     form {
+      @media(max-width: 500px) {
+        height: 15vh;
+      }
+
       background-image: url('../../assets/backgroundHeaderPages.svg');
       background-repeat: no-repeat;
       background-size: cover;

@@ -62,10 +62,10 @@ render() {
         loading ? <Loading />
           : (
             <main className={ secondaryTheme } data-testid="page-search">
-              <div className="toggle-dark-mode-container">
-                <ToggleDarkMode />
-              </div>
               <form>
+                <div className="toggle-dark-mode-container">
+                  <ToggleDarkMode />
+                </div>
                 <div className="input-container">
                   <input
                     type="text"

@@ -16,27 +16,36 @@
     @include box(85%, 100vh, _none, _none);
     margin: 0% 0% 0% 15%;
 
-    .toggle-dark-mode-container {
-      @media(min-width: 1444px) {
-        display: none;
+    form {
+      .toggle-dark-mode-container {
+        @media(min-width: 1444px) {
+          display: none;
+        }
+
+        position: absolute;
+        right: 0;
+        top: 0;
       }
 
-      position: absolute;
-      right: 0;
-    }
-
-    form {
       @media(max-width: 500px) {
         height: 15vh;
+        margin: 4.5rem 0rem 0rem 0rem;
       }
+
+      @media(max-width: 1444px) {
+        margin: 5.5rem 0rem 0rem 0rem;
+        width: 100%;
+      }
+
 
       background-image: url('../../assets/backgroundHeaderPages.svg');
       background-repeat: no-repeat;
       background-size: cover;
-      width: 100%;
+      width: 85%;
       height: 30vh;
       display: flex;
       justify-content: center;
+      position: fixed;
       align-items: center;
       margin: 0rem 0rem 0rem 0rem;
 
@@ -97,6 +106,7 @@
           @media(max-width: 500px) {
             right: 30px;
           }
+
           position: absolute;
           right: 140px;
           bottom: 8px;

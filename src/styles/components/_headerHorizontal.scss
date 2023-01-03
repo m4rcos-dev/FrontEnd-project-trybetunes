@@ -9,6 +9,15 @@
   justify-content: space-between;
   overflow-x: hidden;
 
+  button {
+    @media(max-width: 500px) {
+      margin: 0rem 0rem 0rem 0.5rem;
+    }
+
+    margin: 0rem 0rem 0rem 1rem;
+    cursor: pointer;
+  }
+
   .menu-container {
 
     nav {
@@ -32,7 +41,7 @@
         line-height: 16px;
         letter-spacing: 0.03em;
         text-transform: capitalize;
-        margin: 1rem 1rem 1rem 0rem;
+        margin: 0.5rem 1rem 1rem 0rem;
       }
 
       a:visited {
@@ -47,14 +56,6 @@
         color: $secondary;
       }
     }
-  }
-
-  svg {
-    @media(max-width: 500px) {
-      margin: 0rem 0rem 0rem 0.5rem;
-    }
-
-    margin: 0rem 0rem 0rem 1rem;
   }
 
   img {

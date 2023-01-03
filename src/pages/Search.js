@@ -53,7 +53,7 @@ render() {
     loading,
     albumSearch,
     currentSearch } = this.state;
-  const { secondaryTheme } = this.context;
+  const { secondaryTheme, theme } = this.context;
   return (
     <div className="search-container">
       <HeaderHorizontal />
@@ -86,12 +86,14 @@ render() {
                   </button>
                 </div>
               </form>
-              <div>
-                {
-                  albumSearch.length > 0
-                    ? (
-                      <div className="result-search-container">
-                        <h1>{`Resultado de álbuns de: ${currentSearch}`}</h1>
+              {
+                albumSearch.length > 0
+                  ? (
+                    <div className={ `result-search-container ${secondaryTheme}` }>
+                      <div className={ `title-container ${secondaryTheme}` }>
+                        {`Resultado de álbuns de: ${currentSearch}`}
+                      </div>
+                      <div className="all-albuns-container">
                         {albumSearch.map((album) => {
                           const {
                             collectionName,
@@ -99,22 +101,25 @@ render() {
                             artworkUrl100,
                             collectionId } = album;
                           return (
-                            <div key={ collectionId }>
+                            <div
+                              key={ collectionId }
+                              className={ `album-container ${theme}` }
+                            >
                               <Link
                                 to={ `/album/${collectionId}` }
                                 data-testid={ `link-to-album-${collectionId}` }
                               >
                                 <img src={ artworkUrl100 } alt={ collectionName } />
-                                <h1>{collectionName}</h1>
-                                <h2>{artistName}</h2>
+                                <h1 className={ theme }>{collectionName}</h1>
+                                <h2 className={ theme }>{artistName}</h2>
                               </Link>
                             </div>
                           );
                         })}
                       </div>
-                    ) : this.validSearchItens()
-                }
-              </div>
+                    </div>
+                  ) : this.validSearchItens()
+              }
             </main>
           )
       }

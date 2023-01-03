@@ -23,10 +23,12 @@ $disable: #0194E4;
 
 .secondary-theme-ligth {
   background-color: $secondary-ligth;
+  color: $dark;
   transition: .7s ease-in-out background, .7s ease-in-out color;
 }
 
 .secondary-theme-dark {
   background-color: $secondary-dark;
+  color: $light;
   transition: .7s ease-in-out background, .7s ease-in-out color;
 }

@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
-  position: fixed;
+  position: absolute;
 
   button {
     @media(max-width: 500px) {
@@ -22,11 +22,12 @@
   .menu-container {
 
     nav {
-      position: absolute;
+      position: fixed;
       margin: 1rem 0rem 0rem 1rem;
       display: flex;
       flex-direction: column;
       border-radius: 10px;
+      z-index: 1;
 
       svg {
         margin: 0rem 0.5rem 0rem 1rem;

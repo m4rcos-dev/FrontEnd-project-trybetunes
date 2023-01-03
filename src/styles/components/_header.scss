@@ -1,4 +1,8 @@
 .drawer-container {
+  @media(max-width: 1440px) {
+    display: none;
+  }
+
   @include box(15%, 100vh, _none, _none);
   position: fixed;
   display: flex;

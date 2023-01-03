@@ -58,28 +58,27 @@ render() {
         loading ? <Loading />
           : (
             <main className={ secondaryTheme } data-testid="page-search">
-              <header>
-                <form>
-                  <div className="input-container">
-                    <input
-                      type="text"
-                      data-testid="search-artist-div"
-                      placeholder="DIGITE A SUA PESQUISA"
-                      value={ searchInput }
-                      onChange={ this.handler }
-                    />
-                    <AiOutlineSearch size="25px" color="#FFFFFF" />
-                  </div>
+              <form>
+                <div className="input-container">
+                  <input
+                    type="text"
+                    data-testid="search-artist-div"
+                    placeholder="DIGITE A SUA PESQUISA"
+                    value={ searchInput }
+                    onChange={ this.handler }
+                  />
+
                   <button
                     type="button"
                     data-testid="search-artist-button"
                     disabled={ validButtonSearch }
                     onClick={ this.clickSearch }
                   >
-                    PESQUISAR
+                    <AiOutlineSearch size="25px" color="#FFFFFF" />
+                    <span> PESQUISAR </span>
                   </button>
-                </form>
-              </header>
+                </div>
+              </form>
               <div>
                 {
                   albumSearch.length > 0

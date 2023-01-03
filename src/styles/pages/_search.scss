@@ -2,32 +2,38 @@
   display: flex;
 
   main {
+    overflow-x: hidden;
+
+    @media(max-width: 1440px) {
+      @include box(100%, 100vh, _none, _none);
+      margin: 0% 0% 0% 0%;
+    }
+
     @include box(85%, 100vh, _none, _none);
     margin: 0% 0% 0% 15%;
 
-    header {
-      width: 100%;
-      height: 30vh;
+    form {
       background-image: url('../../assets/backgroundHeaderPages.svg');
       background-repeat: no-repeat;
       background-size: cover;
-    }
-
-    form {
       width: 100%;
       height: 30vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: 0rem 0rem 0rem 0rem;
 
       .input-container {
-        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
 
         input {
           background: #ffffff80;
           @include box(25rem, 2.5rem, _none, 1.438rem);
           color: $light;
           padding: 0rem 0rem 0rem 1.188rem;
+          margin: 0rem 0rem 0rem 1rem;
 
           &::placeholder {
             color: $light;
@@ -39,15 +45,20 @@
             text-transform: uppercase;
           }
         }
-
-        svg {
-          position: absolute;
-          right: 10px;
-          bottom: 8px;
-        }
       }
 
       button {
+        span {
+          @media(max-width: 500px) {
+            display: none;
+          }
+        }
+
+        @media(max-width: 500px) {
+          @include box(0px, 40px, _none, 23px);
+        }
+
+        position: relative;
         background: $secondary;
         @include box(114px, 40px, _none, 23px);
         font-style: normal;
@@ -63,6 +74,15 @@
           background-color: $disable;
           color: $secondary;
           cursor: not-allowed;
+        }
+
+        svg {
+          @media(max-width: 500px) {
+            right: 30px;
+          }
+          position: absolute;
+          right: 140px;
+          bottom: 8px;
         }
       }
 

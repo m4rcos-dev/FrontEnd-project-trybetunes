@@ -42,7 +42,7 @@ clickSearch = async (event) => {
 validSearchItens = () => {
   const { validSearchItens, albumSearch } = this.state;
   return validSearchItens && albumSearch.length === 0
-    ? <h1>Nenhum álbum foi encontrado</h1>
+    ? <div className="not-result-search-container">Nenhum álbum foi encontrado</div>
     : <div />;
 }
 

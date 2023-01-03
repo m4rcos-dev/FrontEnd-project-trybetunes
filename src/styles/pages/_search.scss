@@ -172,5 +172,27 @@
         }
       }
     }
+
+    .not-result-search-container {
+      @media(max-width: 500px) {
+        margin: 15rem 0rem 0rem 0rem;
+        padding: 1.2rem 0rem 0rem 0rem;
+      }
+
+      @media(max-width: 1444px) and (min-width: 500px) {
+        margin: 24rem 0rem 0rem 0rem;
+      }
+
+      margin: 17.569rem 0rem 0rem 0rem;
+      padding: 3.938rem 0rem 0rem 0rem;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      font-weight: 300;
+      font-size: 25px;
+      font-style: italic;
+      line-height: 20px;
+      text-align: center;
+    }
   }
 }

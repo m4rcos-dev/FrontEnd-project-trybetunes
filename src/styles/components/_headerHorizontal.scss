@@ -3,13 +3,13 @@
     display: none;
   }
 
-  @include box(100%, 5.938rem, _none, _none);
+  @include box(100%, 5.5rem, _none, _none);
   display: flex;
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
 
   button {
     @media(max-width: 500px) {

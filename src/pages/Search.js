@@ -29,8 +29,9 @@ class Search extends React.Component {
     });
   }
 
-clickSearch = async () => {
+clickSearch = async (event) => {
   const { searchInput } = this.state;
+  event.preventDefault();
   this.setState({ loading: true, currentSearch: searchInput });
   const response = await searchAlbumsAPI(searchInput);
   this.setState({ albumSearch: response, searchInput: '' }, () => {
@@ -75,7 +76,7 @@ render() {
                   />
 
                   <button
-                    type="button"
+                    type="submit"
                     data-testid="search-artist-button"
                     disabled={ validButtonSearch }
                     onClick={ this.clickSearch }

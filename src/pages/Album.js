@@ -92,8 +92,10 @@ class Album extends React.Component {
               <div className="page-album-container" data-testid="page-album">
                 <div className="header-album-container">
                   <img src={ artistImage } alt={ artistName } />
-                  <h1 data-testid="album-name">{albumName}</h1>
-                  <h3 data-testid="artist-name">{artistName}</h3>
+                  <div>
+                    <h1 data-testid="album-name">{albumName}</h1>
+                    <h3 data-testid="artist-name">{artistName}</h3>
+                  </div>
                 </div>
                 <div className="musics-album-container">
                   {

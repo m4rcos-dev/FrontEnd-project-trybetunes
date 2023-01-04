@@ -1,5 +1,5 @@
 .search-container {
-  @media(max-width: 1440px) {
+  @media(max-width: 1444px) {
     flex-direction: column;
   }
 
@@ -7,7 +7,7 @@
 
   main {
 
-    @media(max-width: 1440px) {
+    @media(max-width: 1444px) {
       @include box(100%, 100vh, _none, _none);
       margin: 0% 0% 0% 0%;
     }

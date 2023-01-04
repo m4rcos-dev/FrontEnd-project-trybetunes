@@ -1,4 +1,18 @@
 .page-album-container {
   @include box(85%, 100vh, _none, _none);
   margin: 0% 0% 0% 15%;
+
+  .header-album-container {
+    // background-image: url('../../assets/backgroundHeaderPages.svg');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // width: 100%;
+    // height: 17.569rem;
+    // display: flex;
+    // justify-content: center;
+    // position: fixed;
+    // align-items: center;
+    position: fixed;
+    z-index: 2;
+  }
 }

@@ -6,6 +6,7 @@ import getMusics from '../services/musicsAPI';
 import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 import HeaderHorizontal from '../components/HeaderHorizontal';
+import HeaderPages from '../components/HeaderPages';
 
 class Album extends React.Component {
   constructor() {
@@ -84,6 +85,7 @@ class Album extends React.Component {
       <>
         <HeaderHorizontal />
         <Header />
+        <HeaderPages />
         {
           loading ? <Loading />
             : (

@@ -3,7 +3,8 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import HeaderHorizontal from '../components/HeaderHorizontal';
-import ToggleDarkMode from '../components/ToggleDarkMode';
+import HeaderPages from '../components/HeaderPages';
+// import ToggleDarkMode from '../components/ToggleDarkMode';
 import ThemeContext from '../context/ThemeContext';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
@@ -58,14 +59,12 @@ render() {
     <div className="search-container">
       <HeaderHorizontal />
       <Header />
+      <HeaderPages />
       {
         loading ? <Loading />
           : (
             <main className={ secondaryTheme } data-testid="page-search">
               <form>
-                <div className="toggle-dark-mode-container">
-                  <ToggleDarkMode />
-                </div>
                 <div className="input-container">
                   <input
                     type="text"

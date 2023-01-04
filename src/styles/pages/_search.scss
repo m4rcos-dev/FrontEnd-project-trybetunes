@@ -16,16 +16,6 @@
     margin: 0% 0% 0% 15%;
 
     form {
-      .toggle-dark-mode-container {
-        @media(min-width: 1444px) {
-          display: none;
-        }
-
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
-
       @media(max-width: 500px) {
         height: 8.784rem;
         margin: 4.5rem 0rem 0rem 0rem;
@@ -36,17 +26,12 @@
         width: 100%;
       }
 
-
-      background-image: url('../../assets/backgroundHeaderPages.svg');
-      background-repeat: no-repeat;
-      background-size: cover;
       width: 85%;
       height: 17.569rem;
       display: flex;
       justify-content: center;
       position: fixed;
       align-items: center;
-      margin: 0rem 0rem 0rem 0rem;
       z-index: 2;
 
       .input-container {
@@ -60,6 +45,7 @@
           color: $light;
           padding: 0rem 0rem 0rem 1.188rem;
           margin: 0rem 0rem 0rem 1rem;
+
 
           &::placeholder {
             color: $light;

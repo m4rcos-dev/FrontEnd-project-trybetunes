@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ThemeContext from '../context/ThemeContext';
 
 class MusicCard extends React.Component {
   render() {
@@ -9,8 +10,9 @@ class MusicCard extends React.Component {
       trackId,
       favorite,
       favoriteCheck } = this.props;
+    const { secondaryTheme } = this.context;
     return (
-      <>
+      <div className={`all-musics-container ${secondaryTheme}`}>
         <h3>{trackName}</h3>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
@@ -30,7 +32,7 @@ class MusicCard extends React.Component {
           />
           Favorita
         </label>
-      </>
+      </div>
     );
   }
 }
@@ -42,5 +44,7 @@ MusicCard.propTypes = {
   favorite: PropTypes.func.isRequired,
   favoriteCheck: PropTypes.bool.isRequired,
 };
+
+MusicCard.contextType = ThemeContext;
 
 export default MusicCard;

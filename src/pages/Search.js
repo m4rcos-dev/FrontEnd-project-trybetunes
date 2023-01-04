@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import HeaderHorizontal from '../components/HeaderHorizontal';
 import HeaderPages from '../components/HeaderPages';
-// import ToggleDarkMode from '../components/ToggleDarkMode';
 import ThemeContext from '../context/ThemeContext';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';

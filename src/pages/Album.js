@@ -82,14 +82,14 @@ class Album extends React.Component {
       loading,
       targetCheck } = this.state;
     return (
-      <>
+      <div className="page-album-container">
         <HeaderHorizontal />
         <Header />
         <HeaderPages />
         {
           loading ? <Loading />
             : (
-              <div className="page-album-container" data-testid="page-album">
+              <main>
                 <div className="header-album-container">
                   <img src={ artistImage } alt={ artistName } />
                   <div>
@@ -97,28 +97,26 @@ class Album extends React.Component {
                     <h3 data-testid="artist-name">{artistName}</h3>
                   </div>
                 </div>
-                <div className="musics-album-container">
-                  {
-                    tracks.map((track, index) => {
-                      const { previewUrl, trackName, trackId } = track;
-                      return (<MusicCard
-                        key={ trackId }
-                        trackName={ trackName }
-                        previewUrl={ previewUrl }
-                        trackId={ trackId }
-                        tracks={ tracks }
-                        favorite={ (event) => this.favorite(event, track, index) }
-                        loading={ loading }
-                        favoriteCheck={ track.favorite }
-                        targetCheck={ targetCheck }
-                      />);
-                    })
-                  }
-                </div>
-              </div>
+                {
+                  tracks.map((track, index) => {
+                    const { previewUrl, trackName, trackId } = track;
+                    return (<MusicCard
+                      key={ trackId }
+                      trackName={ trackName }
+                      previewUrl={ previewUrl }
+                      trackId={ trackId }
+                      tracks={ tracks }
+                      favorite={ (event) => this.favorite(event, track, index) }
+                      loading={ loading }
+                      favoriteCheck={ track.favorite }
+                      targetCheck={ targetCheck }
+                    />);
+                  })
+                }
+              </main>
             )
         }
-      </>
+      </div>
     );
   }
 }

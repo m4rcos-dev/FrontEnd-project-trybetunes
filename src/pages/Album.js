@@ -5,6 +5,7 @@ import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
 import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import HeaderHorizontal from '../components/HeaderHorizontal';
 
 class Album extends React.Component {
   constructor() {
@@ -81,30 +82,35 @@ class Album extends React.Component {
       targetCheck } = this.state;
     return (
       <>
+        <HeaderHorizontal />
         <Header />
         {
           loading ? <Loading />
             : (
-              <div data-testid="page-album">
-                <img src={ artistImage } alt={ artistName } />
-                <h1 data-testid="album-name">{albumName}</h1>
-                <h3 data-testid="artist-name">{artistName}</h3>
-                {
-                  tracks.map((track, index) => {
-                    const { previewUrl, trackName, trackId } = track;
-                    return (<MusicCard
-                      key={ trackId }
-                      trackName={ trackName }
-                      previewUrl={ previewUrl }
-                      trackId={ trackId }
-                      tracks={ tracks }
-                      favorite={ (event) => this.favorite(event, track, index) }
-                      loading={ loading }
-                      favoriteCheck={ track.favorite }
-                      targetCheck={ targetCheck }
-                    />);
-                  })
-                }
+              <div className="page-album-container" data-testid="page-album">
+                <div className="header-album-container">
+                  <img src={ artistImage } alt={ artistName } />
+                  <h1 data-testid="album-name">{albumName}</h1>
+                  <h3 data-testid="artist-name">{artistName}</h3>
+                </div>
+                <div className="musics-album-container">
+                  {
+                    tracks.map((track, index) => {
+                      const { previewUrl, trackName, trackId } = track;
+                      return (<MusicCard
+                        key={ trackId }
+                        trackName={ trackName }
+                        previewUrl={ previewUrl }
+                        trackId={ trackId }
+                        tracks={ tracks }
+                        favorite={ (event) => this.favorite(event, track, index) }
+                        loading={ loading }
+                        favoriteCheck={ track.favorite }
+                        targetCheck={ targetCheck }
+                      />);
+                    })
+                  }
+                </div>
               </div>
             )
         }

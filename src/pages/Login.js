@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
+import logo from '../assets/logo.svg';
+import ToggleDarkMode from '../components/ToggleDarkMode';
+import ThemeContext from '../context/ThemeContext';
 
 class Login extends React.Component {
   constructor() {
@@ -10,14 +13,27 @@ class Login extends React.Component {
       nameLogin: '',
       validButtonLogin: true,
       loading: true,
+      tooltip: 'tooltip',
     };
+  }
+
+  validButtonTrue = () => {
+    this.setState({ validButtonLogin: true, tooltip: 'tooltip' });
+  }
+
+  validButtonfalse = () => {
+    this.setState({ validButtonLogin: false, tooltip: '' });
   }
 
   handler = ({ target: { value } }) => {
     this.setState({ nameLogin: value }, () => {
       const limitMinCaracteres = 3;
       const isDisable = value.length < limitMinCaracteres;
-      this.setState({ validButtonLogin: isDisable });
+      if (isDisable) {
+        this.setState({ validButtonLogin: true, tooltip: 'tooltip' });
+        return;
+      }
+      this.setState({ validButtonLogin: false, tooltip: '' });
     });
   }
 
@@ -31,40 +47,48 @@ class Login extends React.Component {
   }
 
   render() {
-    const { nameLogin, validButtonLogin, loading } = this.state;
+    const { nameLogin, validButtonLogin, loading, tooltip } = this.state;
+    const { theme } = this.context;
     return (
-      <div data-testid="page-login">
-        <h1>Login</h1>
-        {
-          loading
-            ? (
-              <form>
-                <label htmlFor="name-input">
-                  Nome:
+      <main className="body-login">
+        <div className={ `login-container ${theme}` } data-testid="page-login">
+          <img alt="logo" src={ logo } />
+          {
+            loading
+              ? (
+                <form>
                   <input
                     type="text"
+                    placeholder="Qual é o seu nome?"
                     name="login-name-input"
                     id="name-input"
                     value={ nameLogin }
                     onChange={ this.handler }
                     data-testid="login-name-input"
                   />
-                </label>
-                <button
-                  data-testid="login-submit-button"
-                  type="submit"
-                  disabled={ validButtonLogin }
-                  onClick={ this.loginSucess }
-                >
-                  Entrar
-                </button>
-              </form>
-            ) : <Loading />
-        }
-      </div>
+                  <button
+                    className={ tooltip }
+                    data-tooltip="Digite seu nome acima!"
+                    data-testid="login-submit-button"
+                    type="submit"
+                    disabled={ validButtonLogin }
+                    onClick={ this.loginSucess }
+                  >
+                    ENTRAR
+                  </button>
+                  <div className="toogle-container">
+                    <ToggleDarkMode />
+                  </div>
+                </form>
+              ) : <Loading />
+          }
+        </div>
+      </main>
     );
   }
 }
+
+Login.contextType = ThemeContext;
 
 Login.propTypes = {
   history: PropTypes.shape({

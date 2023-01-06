@@ -1,6 +1,10 @@
 import React from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import HeaderHorizontal from '../components/HeaderHorizontal';
+import HeaderPages from '../components/HeaderPages';
+import ThemeContext from '../context/ThemeContext';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 
@@ -25,8 +29,9 @@ class Search extends React.Component {
     });
   }
 
-clickSearch = async () => {
+clickSearch = async (event) => {
   const { searchInput } = this.state;
+  event.preventDefault();
   this.setState({ loading: true, currentSearch: searchInput });
   const response = await searchAlbumsAPI(searchInput);
   this.setState({ albumSearch: response, searchInput: '' }, () => {
@@ -37,7 +42,7 @@ clickSearch = async () => {
 validSearchItens = () => {
   const { validSearchItens, albumSearch } = this.state;
   return validSearchItens && albumSearch.length === 0
-    ? <h1>Nenhum álbum foi encontrado</h1>
+    ? <div className="not-result-search-container">Nenhum álbum foi encontrado</div>
     : <div />;
 }
 
@@ -48,35 +53,48 @@ render() {
     loading,
     albumSearch,
     currentSearch } = this.state;
+  const { secondaryTheme, theme } = this.context;
   return (
-    <>
+    <div className="search-container">
+      <HeaderHorizontal />
       <Header />
+      <HeaderPages />
       {
-        loading ? <Loading />
+        loading ? (
+          <div className={ `loading-search-container ${secondaryTheme}` }>
+            <Loading />
+          </div>)
           : (
-            <div data-testid="page-search">
+            <main className={ secondaryTheme } data-testid="page-search">
               <form>
-                <input
-                  type="text"
-                  data-testid="search-artist-input"
-                  value={ searchInput }
-                  onChange={ this.handler }
-                />
-                <button
-                  type="button"
-                  data-testid="search-artist-button"
-                  disabled={ validButtonSearch }
-                  onClick={ this.clickSearch }
-                >
-                  Pesquisar
-                </button>
+                <div className="input-container">
+                  <input
+                    type="text"
+                    data-testid="search-artist-div"
+                    placeholder="Digite sua pesquisa"
+                    value={ searchInput }
+                    onChange={ this.handler }
+                  />
+
+                  <button
+                    type="submit"
+                    data-testid="search-artist-button"
+                    disabled={ validButtonSearch }
+                    onClick={ this.clickSearch }
+                  >
+                    <AiOutlineSearch size="25px" color="#FFFFFF" />
+                    <span> Pesquisar </span>
+                  </button>
+                </div>
               </form>
-              <div>
-                {
-                  albumSearch.length > 0
-                    ? (
-                      <div>
-                        <h1>{`Resultado de álbuns de: ${currentSearch}`}</h1>
+              {
+                albumSearch.length > 0
+                  ? (
+                    <div className={ `result-search-container ${secondaryTheme}` }>
+                      <div className={ `title-container ${secondaryTheme}` }>
+                        {`Resultado de álbuns de: ${currentSearch}`}
+                      </div>
+                      <div className="all-albuns-container">
                         {albumSearch.map((album) => {
                           const {
                             collectionName,
@@ -84,28 +102,33 @@ render() {
                             artworkUrl100,
                             collectionId } = album;
                           return (
-                            <div key={ collectionId }>
+                            <div
+                              key={ collectionId }
+                              className={ `album-container ${theme}` }
+                            >
                               <Link
                                 to={ `/album/${collectionId}` }
                                 data-testid={ `link-to-album-${collectionId}` }
                               >
                                 <img src={ artworkUrl100 } alt={ collectionName } />
-                                <h1>{collectionName}</h1>
-                                <h2>{artistName}</h2>
+                                <h1 className={ theme }>{collectionName}</h1>
+                                <h2 className={ theme }>{artistName}</h2>
                               </Link>
                             </div>
                           );
                         })}
                       </div>
-                    ) : this.validSearchItens()
-                }
-              </div>
-            </div>
+                    </div>
+                  ) : this.validSearchItens()
+              }
+            </main>
           )
       }
-    </>
+    </div>
   );
 }
 }
+
+Search.contextType = ThemeContext;
 
 export default Search;

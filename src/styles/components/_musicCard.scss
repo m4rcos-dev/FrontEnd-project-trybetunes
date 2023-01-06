@@ -1,0 +1,50 @@
+.music-container {
+  display: flex;
+  overflow-x: hidden;
+
+  .player-container {
+    @media(max-width: 500px) {
+      flex-direction: column;
+      width: 90%;
+      margin: 1rem 0.5rem 0rem 0.5rem;
+    }
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 1rem 2rem 0rem 0rem;
+    padding: 0rem 0rem 1rem 1rem;
+    border-bottom: 0.847727px solid #CCD4E1;
+
+    .favorite-container {
+      @media(max-width: 500px) {
+        margin: 0rem 0rem 1rem 0rem;
+      }
+
+      display: flex;
+      align-items: center;
+    }
+
+    audio {
+      margin: 0rem 1rem 0rem 1rem;
+    }
+
+    audio::-webkit-media-controls-panel {
+      background-color: $light;
+      display: flex;
+    }
+
+    input {
+      visibility: hidden;
+    }
+
+    input + label {
+      color: $heart-disable;
+      cursor: pointer;
+    }
+
+    input:checked + label {
+      color: red;
+    }
+}
+}

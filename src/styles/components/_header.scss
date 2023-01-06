@@ -1,0 +1,97 @@
+.drawer-container {
+  @media(max-width: 1444px) {
+    display: none;
+  }
+
+  @include box(15%, 100vh, _none, _none);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    width: 197.19px;
+    max-width: 98%;
+    height: 104.89px;
+    margin: 40px 0.5px 0px 0.5px;
+  }
+
+  .logo-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .toogle-container {
+      display: flex;
+      align-items: flex-end;
+      margin: 0.4rem 0.5rem 0rem 0rem;
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0rem 0rem 0rem 6.5rem;
+
+    div {
+      margin: 0rem 2rem 0rem 0rem;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 16px;
+      letter-spacing: 0.03em;
+      text-transform: capitalize;
+      margin: 0rem 0rem 5rem 0rem;
+    }
+
+    a:visited {
+      color: inherit;
+    }
+
+    a:hover {
+      color: $secondary;
+    }
+
+    a:active {
+      color: $secondary;
+    }
+
+  }
+
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin: 0rem 0rem 4rem 0rem;
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 30px;
+      border: 1px solid $secondary;
+      margin: 0rem 0rem 2rem 0rem;
+    }
+
+    span {
+      width: 100%;
+      text-decoration: none;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 16px;
+      letter-spacing: 0.03em;
+      text-transform: capitalize;
+      text-align: center;
+    }
+  }
+}

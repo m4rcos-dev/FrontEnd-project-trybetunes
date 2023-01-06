@@ -1,0 +1,27 @@
+@mixin box ($width, $height, $border, $radius) {
+  width: $width;
+  height: $height;
+  border: $border;
+  border-radius: $radius;
+}
+
+@mixin shadow-box ($size, $color) {
+  box-shadow: $size $color;
+}
+
+@mixin gradient ($type, $graus) {
+  @if $type == primary-start {
+    background: linear-gradient($graus, $primary, $secondary);
+  }
+
+  @else if $type == secondary-start {
+    background: linear-gradient($graus, $secondary, $primary);
+  }
+}
+
+.loading-search-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+}

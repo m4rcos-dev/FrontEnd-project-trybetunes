@@ -60,7 +60,10 @@ render() {
       <Header />
       <HeaderPages />
       {
-        loading ? <Loading />
+        loading ? (
+          <div className={ `loading-search-container ${secondaryTheme}` }>
+            <Loading />
+          </div>)
           : (
             <main className={ secondaryTheme } data-testid="page-search">
               <form>

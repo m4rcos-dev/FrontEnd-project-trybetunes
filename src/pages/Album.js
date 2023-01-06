@@ -84,12 +84,16 @@ class Album extends React.Component {
       targetCheck } = this.state;
     const { secondaryTheme } = this.context;
     return (
-      <div className="page-album-container">
+      <div className={ `page-album-container ${secondaryTheme}` }>
         <HeaderHorizontal />
         <Header />
         <HeaderPages />
         {
-          loading ? <Loading />
+          loading ? (
+            <div className={ `loading-search-container ${secondaryTheme}` }>
+              <Loading />
+            </div>
+          )
             : (
               <main>
                 <div className="header-album-container">

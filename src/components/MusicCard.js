@@ -12,7 +12,7 @@ class MusicCard extends React.Component {
       favoriteCheck } = this.props;
     const { secondaryTheme } = this.context;
     return (
-      <div className={`all-musics-container ${secondaryTheme}`}>
+      <div className={ `music-container ${secondaryTheme}` }>
         <h3>{trackName}</h3>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />

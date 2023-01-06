@@ -7,6 +7,7 @@ import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongs
 import Loading from './Loading';
 import HeaderHorizontal from '../components/HeaderHorizontal';
 import HeaderPages from '../components/HeaderPages';
+import ThemeContext from '../context/ThemeContext';
 
 class Album extends React.Component {
   constructor() {
@@ -81,6 +82,7 @@ class Album extends React.Component {
       tracks,
       loading,
       targetCheck } = this.state;
+    const { secondaryTheme } = this.context;
     return (
       <div className="page-album-container">
         <HeaderHorizontal />
@@ -97,22 +99,24 @@ class Album extends React.Component {
                     <h3 data-testid="artist-name">{artistName}</h3>
                   </div>
                 </div>
-                {
-                  tracks.map((track, index) => {
-                    const { previewUrl, trackName, trackId } = track;
-                    return (<MusicCard
-                      key={ trackId }
-                      trackName={ trackName }
-                      previewUrl={ previewUrl }
-                      trackId={ trackId }
-                      tracks={ tracks }
-                      favorite={ (event) => this.favorite(event, track, index) }
-                      loading={ loading }
-                      favoriteCheck={ track.favorite }
-                      targetCheck={ targetCheck }
-                    />);
-                  })
-                }
+                <div className={ `all-musics-container ${secondaryTheme}` }>
+                  {
+                    tracks.map((track, index) => {
+                      const { previewUrl, trackName, trackId } = track;
+                      return (<MusicCard
+                        key={ trackId }
+                        trackName={ trackName }
+                        previewUrl={ previewUrl }
+                        trackId={ trackId }
+                        tracks={ tracks }
+                        favorite={ (event) => this.favorite(event, track, index) }
+                        loading={ loading }
+                        favoriteCheck={ track.favorite }
+                        targetCheck={ targetCheck }
+                      />);
+                    })
+                  }
+                </div>
               </main>
             )
         }
@@ -128,5 +132,7 @@ Album.propTypes = {
     }),
   }).isRequired,
 };
+
+Album.contextType = ThemeContext;
 
 export default Album;

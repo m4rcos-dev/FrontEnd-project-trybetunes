@@ -10,74 +10,91 @@
     margin: 0% 0% 0% 15%;
 
     .header-album-container {
-      @media(max-width: 1444px) {
-        margin: 7rem 0rem 0rem 0rem;
-      }
-
       @media(max-width: 500px) {
         width: 100%;
+        height: 14rem;
       }
 
       display: flex;
       width: 85%;
       height: 17.569rem;
-      margin: 8rem 0rem 0rem 0rem;
-      position: fixed;
+      position: relative;
       z-index: 2;
 
       img {
         @media(max-width: 1444px) {
-          margin: 0rem 0rem 0rem 3rem;
+          margin: 7rem 0rem 0rem 3rem;
         }
 
         @media(max-width: 500px) {
           width: 110px;
           height: 110px;
-          margin: 0rem 0rem 0rem 0.3rem;
+          margin: 6.5rem 0rem 0rem 0.3rem;
         }
 
         width: 240px;
         height: 240px;
         border-radius: 12px;
-        margin: 0rem 0rem 0rem 10rem;
+        margin: 8rem 0rem 0rem 10rem;
+        position: fixed;
       }
 
       div {
+        @media(max-width: 1444px) {
+          margin: 8rem 2rem 0rem 20rem;
+          padding: 2rem 0rem 0rem 0rem;
+        }
+
         @media(max-width: 500px) {
-          margin: 0rem 0.5rem 0rem 0.5rem;
-          padding: 1rem 0rem 0rem 0rem;
+          margin: 7rem 0.5rem 0rem 8rem;
+          padding: 0.7rem 0rem 0rem 0rem;
         }
 
         display: flex;
         flex-direction: column;
-        margin: 0rem 2rem 0rem 2rem;
+        margin: 8rem 2rem 0rem 27rem;
         padding: 4rem 0rem 0rem 0rem;
+        position: fixed;
 
-      h1 {
-        @media(max-width: 500px) {
-          font-size: 15px;
-          line-height: 15px;
+        h1 {
+          @media(max-width: 500px) {
+            font-size: 15px;
+            line-height: 15px;
+          }
+
+          color: $light;
+          width: 100%;
+          font-weight: 300;
+          font-size: 25px;
+          font-style: italic;
+          line-height: 20px;
         }
 
-        color: $light;
-        width: 100%;
-        font-weight: 300;
-        font-size: 25px;
-        font-style: italic;
-        line-height: 20px;
-      }
+        h3 {
+          @media(max-width: 500px) {
+            font-size: 11.3px;
+            margin: 0.4rem 0rem 0rem 0rem;
+          }
 
-      h3 {
-        @media(max-width: 500px) {
-          font-size: 11.3px;
+          color: $light;
+          margin: 0.5rem 0rem 0rem 0rem;
         }
+      }
+    }
 
-        color: $light;
-        margin: 0.5rem 0rem 0rem 0rem;
+    .all-musics-container {
+      @media(max-width: 1444px) {
+        padding: 7rem 0rem 0rem 2rem;
       }
+
+      @media(max-width: 500px) {
+        padding: 2rem 0rem 0rem 2rem;
       }
+
+      margin: 0rem 0rem 0rem 0rem;
+      padding: 2rem 0rem 0rem 30rem;
+      position: relative;
+      z-index: 1;
     }
   }
 }
-
-

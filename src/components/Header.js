@@ -30,10 +30,10 @@ class Header extends React.Component {
     const { loading, user, imageUser } = this.state;
     const { theme } = this.context;
     return (
-      <header className={ `drawer-container ${theme}` } data-testid="header-component">
-        <div className="logo-container">
+      <header id="drawer-container" className={ theme } data-testid="header-component">
+        <div id="logo-container">
           <img alt="logo" src={ Logo } />
-          <div className="toogle-container">
+          <div id="toogle-header-container">
             <ToggleDarkMode />
           </div>
         </div>
@@ -60,7 +60,7 @@ class Header extends React.Component {
         {
           loading ? <Loading />
             : (
-              <div className="profile-container">
+              <div id="profile-header-container">
                 <img alt="imagem usuário" src={ imageUser } />
                 <span data-testid="header-user-name">{user}</span>
               </div>

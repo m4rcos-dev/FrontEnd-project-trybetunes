@@ -1,4 +1,4 @@
-.header-pages-container {
+#header-pages-container {
   @media(max-width: 500px) {
     height: 8.784rem;
     margin: 4.5rem 0rem 0rem 0rem;
@@ -20,7 +20,7 @@
     z-index: 2;
 }
 
-.toggle-dark-mode-container {
+#toggle-dark-mode-container {
   @media(min-width: 1444px) {
     display: none;
   }

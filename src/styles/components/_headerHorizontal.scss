@@ -1,4 +1,4 @@
-.header-horizontal-container {
+#header-horizontal-container {
   @media(min-width: 1444px) {
     display: none;
   }
@@ -20,14 +20,14 @@
     cursor: pointer;
   }
 
-  .menu-container {
+  #menu-container {
 
     nav {
       position: fixed;
       margin: 1rem 0rem 0rem 1rem;
       display: flex;
       flex-direction: column;
-      border-radius: 10px;
+      border-radius: 0.625rem;
       z-index: 3;
 
       svg {
@@ -40,8 +40,8 @@
         text-decoration: none;
         font-style: normal;
         font-weight: 400;
-        font-size: 20px;
-        line-height: 16px;
+        font-size: 1.25rem;
+        line-height: 1rem;
         letter-spacing: 0.03em;
         text-transform: capitalize;
         margin: 0.5rem 1rem 1rem 0rem;
@@ -63,15 +63,15 @@
 
   img {
     @media(max-width: 500px) {
-      width: 100px;
+      width: 6.25rem;
       max-height: 98%;
     }
 
-    width: 120px;
+    width: 7.5rem;
     max-height: 98%;
   }
 
-  .profile-header-horizontal {
+  #profile-header-horizontal {
     @media(max-width: 500px) {
       flex-direction: column;
       justify-content: center;
@@ -85,11 +85,11 @@
 
     img {
       @media(max-width: 500px) {
-        width: 30px;
+        width: 1.875rem;
         margin: 0rem 0.5rem 0.5rem 0rem;
       }
 
-      width: 40px;
+      width: 2.5rem;
       border-radius: 100%;
       margin: 0rem 1rem 0rem 0rem;
     }

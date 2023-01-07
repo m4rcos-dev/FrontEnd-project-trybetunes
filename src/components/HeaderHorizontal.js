@@ -40,8 +40,8 @@ class HeaderHorizontal extends Component {
     const { loading, imageUser, user, statusMenu } = this.state;
     const { theme, secondaryTheme } = this.context;
     return (
-      <div className={ `header-horizontal-container ${theme}` }>
-        <div className="menu-container">
+      <div id="header-horizontal-container" className={ theme }>
+        <div id="menu-container">
           <button type="button" className={ theme } onClick={ this.handleStatusMenu }>
             <HiOutlineMenu size="20px" />
           </button>
@@ -66,7 +66,7 @@ class HeaderHorizontal extends Component {
         {
           loading ? <Loading />
             : (
-              <div className="profile-header-horizontal">
+              <div id="profile-header-horizontal">
                 <img alt="imagem usuário" src={ imageUser } />
                 <span data-testid="header-user-name">{user}</span>
               </div>

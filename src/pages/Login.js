@@ -43,15 +43,15 @@ class Login extends React.Component {
     event.preventDefault();
     this.setState({ loading: false });
     await createUser({ name: nameLogin });
-    history.push('/search');
+    history.push('/home');
   }
 
   render() {
     const { nameLogin, validButtonLogin, loading, tooltip } = this.state;
     const { theme } = this.context;
     return (
-      <main className="body-login">
-        <div className={ `login-container ${theme}` } data-testid="page-login">
+      <main id="body-login">
+        <div id="login-container" className={ theme } data-testid="page-login">
           <img alt="logo" src={ logo } />
           {
             loading
@@ -76,7 +76,7 @@ class Login extends React.Component {
                   >
                     ENTRAR
                   </button>
-                  <div className="toogle-container">
+                  <div id="toogle-login-container">
                     <ToggleDarkMode />
                   </div>
                 </form>

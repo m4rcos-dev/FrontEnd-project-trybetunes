@@ -5,8 +5,8 @@ class HeaderPages extends Component {
   render() {
     return (
       <div>
-        <div className="header-pages-container" />
-        <div className="toggle-dark-mode-container">
+        <div id="header-pages-container" />
+        <div id="toggle-dark-mode-container">
           <ToggleDarkMode />
         </div>
       </div>

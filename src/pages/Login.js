@@ -43,7 +43,7 @@ class Login extends React.Component {
     event.preventDefault();
     this.setState({ loading: false });
     await createUser({ name: nameLogin });
-    history.push('/search');
+    history.push('/home');
   }
 
   render() {

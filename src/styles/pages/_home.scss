@@ -1,0 +1,5 @@
+#home-container {
+  @include box(100%, 100vh, _none, _none);
+  position: fixed;
+  z-index: 0;
+}
